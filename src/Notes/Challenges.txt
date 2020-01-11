@@ -1,0 +1,35 @@
+- Had to find a way to pass value from NumericButton component to the app component
+    - From this, I learned about passing data from child to parent through callback functions
+    - https://towardsdatascience.com/passing-data-between-react-components-parent-children-siblings-a64f89e24ecf
+
+- (Unsolved) Have to find a solution around the asynchronous setState() method since I want to access values of the state right after calling setState()
+    - https://stackoverflow.com/questions/30782948/why-calling-react-setstate-method-doesnt-mutate-the-state-immediately
+    - https://stackoverflow.com/questions/41043419/reactjs-onclick-state-change-one-step-behind
+    - The better way to do this is through the componentDidUpdate() method
+        - https://stackoverflow.com/questions/56501409/what-is-the-advantage-of-using-componentdidupdate-over-the-setstate-callback
+        - componentDidUpdate() is called right after setState() to counter its asyncrhonous nature
+
+- Understanding difference between regular functions and arrow functions
+    - arrow functions don't have own binding of "this", so when "this" is called, it refers to the class
+    - normal functions have binding of "this", so when "this" is called, it refers to the function itself
+    - https://stackoverflow.com/questions/51778443/react-js-and-arrow-functions-vs-normal-functions
+    - https://stackoverflow.com/questions/34361379/are-arrow-functions-and-functions-equivalent-exchangeable
+
+- Creating a new component called <NumericButtons>, which is a container for a list of <NumericButton>'s and being able to send data from each <NumericButton> to <NumericButtons> and finally back to <App>
+    - Had to use a series of callback functions
+    - Had trouble finding names to name callback functions
+        - Settled on cb() and sendData()
+        - Good thing there's only one callback function for each component so far...
+
+-Currently Restructuring my app so the pressButton functionality lies in
+<NumericButton> rather than <App>, but pushing CurrNum back to <NumericButtons> so
+all the other <NumericButton>s' CurrNums can be updated is proving very difficult
+    - Basically, how to re-render certain components based on prop changes?
+    - SOLVED!
+    - In <NumericButton>'s componentDidUpdate(), if this.state.CurrNum is different
+    from the prop CurrNumIn that it was given, we'll want to update 
+    this.state.CurrNum
+    - THE REASON WHY THIS DOES NOT CAUSE AN INFINITE LOOP:
+        - After updating this.state.CurrNum, this.state.CurrNum === this.prop.CurrNumIn,
+        so this.setState() isn't called anymore
+        - We put the state in sync with the props!

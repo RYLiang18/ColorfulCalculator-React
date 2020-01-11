@@ -1,0 +1,15 @@
+Todo:
+-Put Numeric Buttons as a 3x3 grid
+    https://stackoverflow.com/questions/39702130/line-two-divs-side-by-side-with-css-and-react
+-Create a Label for the currNum to be displayed in
+-Create Operator button
+-Create Operator buttons
+-Display CurrNum properly when decimal point button is pressed
+
+Done:
+- got currNum to update and display every time a number button is pressed
+- Find a way to set state and print out CurrNum after it's been updated
+- Display buttons 0-9 as an array and retain current functionality
+- Got State to sync across all components so far
+-Create decimal point button
+- Created Screen to display CurrNum
