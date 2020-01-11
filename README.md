@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# ABOUT PROJECT
+Colorful Calculator is a webapp simulating a handheld calculator. It is implemented using React, Typescript, and a finite state machine. Be sure to check out: 
+src -> Notes for more information about the project
+
 ## Available Scripts
 
 In the project directory, you can run:
