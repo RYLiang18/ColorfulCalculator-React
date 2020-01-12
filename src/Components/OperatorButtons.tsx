@@ -3,9 +3,16 @@ import OperatorButton from './OperatorButton'
 
 interface Props {
     cb: Function
+    currNumIn: number;
+    isNegativeIn: boolean;
+    formulaNumsIn: Array<number>;
+    formulaOpsIn: Array<string>;
+    currStateIn: number;
+    numDecimalPointsIn: number;
+    resultIn: number;
 }
 interface State {
-    signs: Array<String>;
+    signs: Array<string>;
 }
 
 export default class OperatorButtons extends Component<Props, State> {
@@ -20,8 +27,24 @@ export default class OperatorButtons extends Component<Props, State> {
 
     /* *************** OTHER FUNCTIONS *************** */
 
-    sendData = (childData: number) => {
-        this.props.cb(childData);
+    sendData = (
+        newCurrNum: number,
+        newIsNegative: boolean,
+        newFormulaNums: Array<number>,
+        newFormulaOps: Array<string>,
+        newCurrState: number,
+        newNumDecimalPoints: number,
+        newResult: number
+    ) => {
+        this.props.cb(
+            newCurrNum,
+            newIsNegative,
+            newFormulaNums,
+            newFormulaOps,
+            newCurrState,
+            newNumDecimalPoints,
+            newResult
+        );
     }
 
     /* ********************************************** */
@@ -33,6 +56,13 @@ export default class OperatorButtons extends Component<Props, State> {
                 signIn={sign}
                 cb={this.sendData}
                 key={sign.toString()}
+                currNumIn={this.props.currNumIn}
+                isNegativeIn={this.props.isNegativeIn}
+                formulaNumsIn={this.props.formulaNumsIn}
+                formulaOpsIn={this.props.formulaOpsIn}
+                currStateIn={this.props.currStateIn}
+                numDecimalPointsIn={this.props.numDecimalPointsIn}
+                resultIn={this.props.resultIn}
             />
         ));
 

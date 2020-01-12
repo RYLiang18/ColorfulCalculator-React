@@ -4,6 +4,7 @@ import OperatorButtons from "./Components/OperatorButtons"
 import DecimalButton from "./Components/DecimalButton"
 import SignChangeButton from "./Components/SignChangeButton";
 import Screen from "./Components/Screen"
+import EqualsButton from "./Components/EqualsButton"
 
 interface Props { }
 interface State {
@@ -11,17 +12,17 @@ interface State {
    * LOCAL VARIABLES:
    * formulaNums - A list of all the numbers in the formula
    * formulaOps - A list of all the operators in the formula
-   * 
    * currNum - The current number on the calculator screen
    * currState - The current state of the FSM that the calculator is in
    */
 
-  formulaNums: Array<Number>;
-  formulaOps: Array<String>;
-
+  formulaNums: Array<number>;
+  formulaOps: Array<string>;
   currNum: number;
   currState: number;
   isNegative: boolean;
+  numDecimalPoints: number;
+  result: number;
 }
 
 export default class App extends Component<Props, State> {
@@ -34,7 +35,9 @@ export default class App extends Component<Props, State> {
 
       currNum: 0,
       currState: 1,
-      isNegative: false
+      isNegative: false,
+      numDecimalPoints: 1,
+      result: 0
     };
     console.log("Initial currNum: " + this.state.currNum);
   }
@@ -56,10 +59,15 @@ export default class App extends Component<Props, State> {
    * childData - the new currNum that is produced after any <NumericButton/> is 
    * pressed. This is sent to <App/> through a series of callback functions.
    */
-  pressNumericButton = (newCurrNum: number, newCurrState: number) => {
+  pressNumericButton = (
+    newCurrNum: number,
+    newCurrState: number,
+    newNumDecimalPoints: number
+  ) => {
     this.setState({
       currNum: newCurrNum,
-      currState: newCurrState
+      currState: newCurrState,
+      numDecimalPoints: newNumDecimalPoints
     })
   };
 
@@ -70,15 +78,88 @@ export default class App extends Component<Props, State> {
   }
 
   pressSignChangeButton = () => {
-    if (this.state.currNum !== 0) {
+    if (this.state.currState !== 3) {
       this.setState({
         isNegative: !this.state.isNegative
       })
+    } else {
+      this.setState({ result: this.state.result * -1 });
     }
   }
 
-  pressOperatorButton = (childData: String) => {
-    //TODO
+  pressOperatorButton = (
+    newCurrNum: number,
+    newIsNegative: boolean,
+    newFormulaNums: Array<number>,
+    newFormulaOps: Array<string>,
+    newCurrState: number,
+    newNumDecimalPoints: number,
+    newResult: number
+  ) => {
+    if (this.state.currNum !== newCurrNum) {
+      this.setState({ currNum: newCurrNum });
+    }
+
+    if (this.state.isNegative !== newIsNegative) {
+      this.setState({ isNegative: newIsNegative });
+    }
+
+    if (this.state.formulaNums !== newFormulaNums) {
+      this.setState({ formulaNums: newFormulaNums });
+    }
+
+    if (this.state.formulaOps !== newFormulaOps) {
+      this.setState({ formulaOps: newFormulaOps });
+    }
+
+    if (this.state.currState !== newCurrState) {
+      this.setState({ currState: newCurrState });
+    }
+
+    if (this.state.numDecimalPoints !== newNumDecimalPoints) {
+      this.setState({ numDecimalPoints: newNumDecimalPoints });
+    }
+
+    if (this.state.result !== newResult) {
+      this.setState({ result: newResult });
+    }
+  }
+
+  pressEqualsButton = (
+    newIsNegative: boolean,
+    newCurrNum: number,
+    newFormulaNums: Array<number>,
+    newFormulaOps: Array<string>,
+    newCurrState: number,
+    newResult: number
+  ) => {
+    /**
+     * We surround everything with if statements to prevent any unwanted
+     * state changes
+     */
+    if (this.state.isNegative !== newIsNegative) {
+      this.setState({ isNegative: newIsNegative });
+    }
+
+    if (this.state.currNum !== newCurrNum) {
+      this.setState({ currNum: newCurrNum });
+    }
+
+    if (this.state.formulaNums !== newFormulaNums) {
+      this.setState({ formulaNums: newFormulaNums });
+    }
+
+    if (this.state.formulaOps !== newFormulaOps) {
+      this.setState({ formulaOps: newFormulaOps });
+    }
+
+    if (this.state.currState !== newCurrState) {
+      this.setState({ currState: newCurrState });
+    }
+
+    if (this.state.result !== newResult) {
+      this.setState({ result: newResult });
+    }
   }
 
   /* ********************************************** */
@@ -87,15 +168,39 @@ export default class App extends Component<Props, State> {
   render() {
     return (
       <div>
-        <Screen currNumIn={this.state.currNum} isNegativeIn={this.state.isNegative} />
+        <Screen
+          currNumIn={this.state.currNum}
+          isNegativeIn={this.state.isNegative}
+          currStateIn={this.state.currState}
+          resultIn={this.state.result}
+        />
         <NumericButtons
           cb={this.pressNumericButton}
           currNumIn={this.state.currNum}
           currStateIn={this.state.currState}
+          numDecimalPoinsIn={this.state.numDecimalPoints}
         />
-        <OperatorButtons cb={this.pressOperatorButton} />
+        <OperatorButtons
+          cb={this.pressOperatorButton}
+          currNumIn={this.state.currNum}
+          isNegativeIn={this.state.isNegative}
+          formulaNumsIn={this.state.formulaNums}
+          formulaOpsIn={this.state.formulaOps}
+          currStateIn={this.state.currState}
+          numDecimalPointsIn={this.state.numDecimalPoints}
+          resultIn={this.state.result}
+        />
         <DecimalButton cb={this.pressDecimalButton} />
         <SignChangeButton cb={this.pressSignChangeButton} />
+        <EqualsButton
+          cb={this.pressEqualsButton}
+          isNegativeIn={this.state.isNegative}
+          currNumIn={this.state.currNum}
+          formulaNumsIn={this.state.formulaNums}
+          formulaOpsIn={this.state.formulaOps}
+          currStateIn={this.state.currState}
+          resultIn={this.state.result}
+        />
       </div>
     );
   }

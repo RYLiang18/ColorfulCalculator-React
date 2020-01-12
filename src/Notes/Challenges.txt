@@ -33,3 +33,17 @@ all the other <NumericButton>s' CurrNums can be updated is proving very difficul
         - After updating this.state.CurrNum, this.state.CurrNum === this.prop.CurrNumIn,
         so this.setState() isn't called anymore
         - We put the state in sync with the props!
+
+- So much stuff to handle, maybe there's a way to have static states?
+
+- Getting the screen to display correctly when = sign is pressed
+    - Holy shit this was a hard one, but that's just since I was overthinking it
+    - After pressing equals, result is already parsed and has the right sign.
+    - So in state 3, all the screen needs to do is display result in string form.
+    - If +/- is pressed, we'll just fuckin multiply result by -1, and the screen will
+    update itself since componentDidUpdate() would have been called on it.
+    - If an operand is pressed, then the state will change to 1, leading isNegative to turn
+    back to false.
+    - TL;DR, FSM is fucking confusing
+
+

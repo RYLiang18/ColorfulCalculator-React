@@ -22,6 +22,7 @@ interface State {
 
 export default class NumericButton extends Component<Props, State> {
   /* *************** CONSTRUCTOR *************** */
+
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -73,7 +74,7 @@ export default class NumericButton extends Component<Props, State> {
 
   pressButton_state1_state3 = () => {
     this.setState({
-      currNum: this.state.currNum * 10 + this.state.value,
+      currNum: this.state.value,
       currState: 2
     }, this.sendData);
   }

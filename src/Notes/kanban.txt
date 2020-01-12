@@ -1,10 +1,8 @@
 Todo:
--Put Numeric Buttons as a 3x3 grid
-    https://stackoverflow.com/questions/39702130/line-two-divs-side-by-side-with-css-and-react
--Create a Label for the currNum to be displayed in
--Create Operator button
--Create Operator buttons
--Display CurrNum properly when decimal point button is pressed
+- Implement C and CE buttons
+- Put Buttons into grid
+- Add reactstrap into project
+- Make it look nice
 
 Done:
 - got currNum to update and display every time a number button is pressed
@@ -13,3 +11,15 @@ Done:
 - Got State to sync across all components so far
 -Create decimal point button
 - Created Screen to display CurrNum
+- -Put Numeric Buttons as a 3x3 grid
+    https://stackoverflow.com/questions/39702130/line-two-divs-side-by-side-with-css-and-react
+-Create a Label for the currNum to be displayed in
+-Display CurrNum properly when decimal point button is pressed
+-Add numDecimalPoints value to <App/> state from NumericButtons so it can be pushed to
+<OperatorButtons/> and then to <OperatorButton/>
+-Create Operator button
+-Create Operator buttons
+-Add numDecimalPoints value to <App/> state from NumericButtons so it can be pushed to
+<OperatorButtons/> and then to <OperatorButton/>
+-Once finished, see if you can get rid of states in NumericButtons and OperatorButtons
+and directly pass states from <App/> through <...Buttons/> to <...Button/>

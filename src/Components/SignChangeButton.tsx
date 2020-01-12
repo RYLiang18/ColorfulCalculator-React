@@ -6,10 +6,6 @@ interface Props {
 interface State { }
 
 export default class SignChangeButton extends Component<Props, State> {
-    /* *************** CONSTRUCTOR *************** */
-
-    /* ********************************************** */
-
     /* *************** OTHER FUNCTIONS *************** */
 
     pressButton = () => {
