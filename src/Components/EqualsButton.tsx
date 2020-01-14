@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Button } from "reactstrap";
+import "../Styles/Button.css"
 
 interface Props {
     cb: Function;
@@ -137,8 +139,14 @@ export default class EqualsButton extends Component<Props, State> {
     /* *************** RENDER FUNCTION *************** */
     render() {
         return (
-            <div>
-                <button onClick={this.pressButton}>=</button>
+            <div className="Button">
+                <Button
+                    color="primary"
+                    onClick={this.pressButton}
+                    block
+                >
+                    =
+                </Button>
             </div>
         )
     }

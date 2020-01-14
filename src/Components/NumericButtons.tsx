@@ -48,11 +48,19 @@ export default class NumericButtons extends Component<Props, State> {
     ));
 
     return (
-      <div>
-        <div className='rowA'>{buttons[7]} {buttons[8]} {buttons[9]}</div>
-        <div className='rowB'>{buttons[4]} {buttons[5]} {buttons[6]}</div>
-        <div className='rowC'>{buttons[1]} {buttons[2]} {buttons[3]}</div>
-        <div className='rowD'>{buttons[0]}</div>
+      <div className="grid-container">
+        <div>{buttons[7]}</div>
+        <div>{buttons[8]}</div>
+        <div>{buttons[9]}</div>
+        <div>{buttons[4]}</div>
+        <div>{buttons[5]}</div>
+        <div>{buttons[6]}</div>
+        <div>{buttons[1]}</div>
+        <div>{buttons[2]}</div>
+        <div>{buttons[3]}</div>
+        <div>{/*NOTHING*/}</div>
+        <div>{buttons[0]}</div>
+        <div>{/*NOTHING*/}</div>
       </div>
     );
   }

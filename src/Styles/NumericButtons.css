@@ -1,14 +1,7 @@
-.rowA{
-    display:flex;
-    flex-direction: row;
+.grid-container {
+    display: inline-grid;
+    grid-template-columns: 50px 50px 50px;
+    column-gap: 5px;
+    row-gap: 5px;
 }
 
-.rowB{
-    display:flex;
-    flex-direction: row;
-}
-
-.rowC{
-    display:flex;
-    flex-direction: row;
-}

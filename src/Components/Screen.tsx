@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "../Styles/Button.css"
 
 interface Props {
     currNumIn: number;
@@ -21,15 +22,21 @@ export default class Screen extends Component<Props, State> {
         this.state = {
             currNum: this.props.currNumIn,
             isNegative: this.props.isNegativeIn,
-            numToDisplay: "",
+            numToDisplay: "0",
             result: this.props.resultIn
         };
     }
     /* ********************************************** */
     /* *************** OTHER FUNCTIONS *************** */
     componentDidUpdate = () => {
+        if (this.state.result !== this.props.resultIn) {
+            this.setState({
+                result: this.props.resultIn
+            });
+        }
+
         if (this.props.currStateIn === 1 && Screen.temp) {
-            this.setState({ numToDisplay: "" });
+            this.setState({ numToDisplay: this.state.result.toString() });
             Screen.temp = false;
         } else if (this.props.currStateIn !== 3) {
             this.display();
@@ -76,13 +83,27 @@ export default class Screen extends Component<Props, State> {
         }
     }
 
+    randomAlertColor() {
+        var colors: Array<string> = ["primary", "secondary", "success", "info", "warning", "danger"];
+        var rng: number = Math.floor((Math.random() * 5));
+        return colors[rng];
+    }
+
     /* ********************************************** */
 
     /* *************** RENDER FUNCTION *************** */
     render() {
         return (
-            <div>
-                {this.state.numToDisplay}
+            <div className="Screen">
+                <h1>
+                    {this.state.numToDisplay}
+                </h1>
+
+                {/*<Alert
+                    color={this.randomAlertColor()}
+                >
+                    {this.state.numToDisplay}
+                </Alert>*/}
             </div>
         )
     }

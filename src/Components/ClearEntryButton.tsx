@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button } from "reactstrap"
+import { Button } from "reactstrap";
 import "../Styles/Button.css"
 
 interface Props {
@@ -7,24 +7,21 @@ interface Props {
 }
 interface State { }
 
-export default class SignChangeButton extends Component<Props, State> {
-    /* *************** OTHER FUNCTIONS *************** */
+export default class ClearEntryButton extends Component<Props, State> {
 
     pressButton = () => {
-        this.props.cb()
+        this.props.cb();
     }
-
-    /* ********************************************** */
 
     render() {
         return (
             <div className="Button">
                 <Button
-                    onClick={() => this.pressButton()}
-                    color="primary"
+                    color="danger"
+                    onClick={this.pressButton}
                     block
                 >
-                    +/-
+                    CE
                 </Button>
             </div>
         )

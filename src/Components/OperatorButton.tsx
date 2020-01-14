@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Button } from 'reactstrap'
+import "../Styles/Button.css"
 
 /**
  * <OperatorButton/> is a button component that simulates an operator button
@@ -180,8 +182,14 @@ export default class OperatorButton extends Component<Props, State> {
     /* *************** RENDER FUNCTION *************** */
     render() {
         return (
-            <div>
-                <button onClick={() => this.pressButton()}>{this.state.sign}</button>
+            <div className="Button">
+                <Button
+                    onClick={() => this.pressButton()}
+                    color="info"
+                    block
+                >
+                    {this.state.sign}
+                </Button>
             </div>
         )
     }

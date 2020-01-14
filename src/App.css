@@ -1,38 +1,43 @@
-.App {
-  text-align: center;
+
+.NumAndOpButtons {
+  display:inline-grid;
+  grid-template-columns: auto auto;
+  column-gap: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.CandCEButtons{
+  display:inline-grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  column-gap: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.AccessoryButtons{
+  display: inline-grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  column-gap: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Calculator{
+  /* Grid */
+  display: inline-grid;
+  grid-template-columns: auto;
+  row-gap: 5px;
+
+  /* Making Border and Background Color */
+  border: 7px solid black;
+  padding-top: 7px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-bottom: 7px;
+  background-color: pink;
+  box-shadow: 5px 10px;
+
+  /* Centering on Screen */
+  position: fixed;
+  top: 25%;
+  left: 41.5%;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App{
+  background-color: aqua;
 }

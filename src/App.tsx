@@ -5,6 +5,10 @@ import DecimalButton from "./Components/DecimalButton"
 import SignChangeButton from "./Components/SignChangeButton";
 import Screen from "./Components/Screen"
 import EqualsButton from "./Components/EqualsButton"
+import ClearButton from "./Components/ClearButton"
+import ClearEntryButton from "./Components/ClearEntryButton";
+import Title from "./Components/Title";
+import './App.css'
 
 interface Props { }
 interface State {
@@ -162,45 +166,80 @@ export default class App extends Component<Props, State> {
     }
   }
 
+  pressClearButton = () => {
+    this.setState({
+      currNum: 0,
+      result: 0,
+      numDecimalPoints: 1,
+      isNegative: false,
+      formulaNums: [],
+      formulaOps: [],
+      currState: 1
+    })
+  }
+
+  pressClearEntryButton = () => {
+    if ((this.state.currState === 2) || (this.state.currState === 4)) {
+      this.setState({
+        currNum: 0,
+        isNegative: false,
+        currState: 1,
+        numDecimalPoints: 1
+      })
+    }
+  }
+
   /* ********************************************** */
 
   /* *************** RENDER FUNCTION *************** */
   render() {
     return (
       <div>
-        <Screen
-          currNumIn={this.state.currNum}
-          isNegativeIn={this.state.isNegative}
-          currStateIn={this.state.currState}
-          resultIn={this.state.result}
-        />
-        <NumericButtons
-          cb={this.pressNumericButton}
-          currNumIn={this.state.currNum}
-          currStateIn={this.state.currState}
-          numDecimalPoinsIn={this.state.numDecimalPoints}
-        />
-        <OperatorButtons
-          cb={this.pressOperatorButton}
-          currNumIn={this.state.currNum}
-          isNegativeIn={this.state.isNegative}
-          formulaNumsIn={this.state.formulaNums}
-          formulaOpsIn={this.state.formulaOps}
-          currStateIn={this.state.currState}
-          numDecimalPointsIn={this.state.numDecimalPoints}
-          resultIn={this.state.result}
-        />
-        <DecimalButton cb={this.pressDecimalButton} />
-        <SignChangeButton cb={this.pressSignChangeButton} />
-        <EqualsButton
-          cb={this.pressEqualsButton}
-          isNegativeIn={this.state.isNegative}
-          currNumIn={this.state.currNum}
-          formulaNumsIn={this.state.formulaNums}
-          formulaOpsIn={this.state.formulaOps}
-          currStateIn={this.state.currState}
-          resultIn={this.state.result}
-        />
+        <Title />
+        <div className='Calculator'>
+          <Screen
+            currNumIn={this.state.currNum}
+            isNegativeIn={this.state.isNegative}
+            currStateIn={this.state.currState}
+            resultIn={this.state.result}
+          />
+          <div className='CandCEButtons'>
+            <ClearEntryButton cb={this.pressClearEntryButton} />
+            <ClearButton cb={this.pressClearButton} />
+          </div>
+          <div className='NumAndOpButtons'>
+            <NumericButtons
+              cb={this.pressNumericButton}
+              currNumIn={this.state.currNum}
+              currStateIn={this.state.currState}
+              numDecimalPoinsIn={this.state.numDecimalPoints}
+            />
+            <OperatorButtons
+              cb={this.pressOperatorButton}
+              currNumIn={this.state.currNum}
+              isNegativeIn={this.state.isNegative}
+              formulaNumsIn={this.state.formulaNums}
+              formulaOpsIn={this.state.formulaOps}
+              currStateIn={this.state.currState}
+              numDecimalPointsIn={this.state.numDecimalPoints}
+              resultIn={this.state.result}
+            />
+          </div>
+          <div className='AccessoryButtons'>
+            <SignChangeButton cb={this.pressSignChangeButton} />
+            <DecimalButton cb={this.pressDecimalButton} />
+            <div />
+            <EqualsButton
+              cb={this.pressEqualsButton}
+              isNegativeIn={this.state.isNegative}
+              currNumIn={this.state.currNum}
+              formulaNumsIn={this.state.formulaNums}
+              formulaOpsIn={this.state.formulaOps}
+              currStateIn={this.state.currState}
+              resultIn={this.state.result}
+            />
+          </div>
+        </div>
       </div>
     );
   }

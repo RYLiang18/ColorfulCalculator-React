@@ -1,5 +1,4 @@
 Todo:
-- Implement C and CE buttons
 - Put Buttons into grid
 - Add reactstrap into project
 - Make it look nice
@@ -23,3 +22,5 @@ Done:
 <OperatorButtons/> and then to <OperatorButton/>
 -Once finished, see if you can get rid of states in NumericButtons and OperatorButtons
 and directly pass states from <App/> through <...Buttons/> to <...Button/>
+- Implement C and CE buttons
+

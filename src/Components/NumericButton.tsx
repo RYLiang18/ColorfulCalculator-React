@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Button } from 'reactstrap'
+import '../Styles/Button.css'
 
 /**
  * <NumericButton/> is a button component that simulates a numerical button
@@ -92,13 +94,25 @@ export default class NumericButton extends Component<Props, State> {
     }, this.sendData)
   }
 
+  randomColor() {
+    var colors: Array<string> = ["primary", "secondary", "success", "info", "warning", "danger"];
+    var rng: number = Math.floor((Math.random() * 5));
+    return colors[rng];
+  }
+
   /* ********************************************** */
 
   /* *************** RENDER FUNCTION *************** */
   render() {
     return (
-      <div>
-        <button onClick={() => this.pressButton()}>{this.state.value}</button>
+      <div className='Button'>
+        <Button
+          onClick={() => this.pressButton()}
+          color={this.randomColor()}
+          block
+        >
+          {this.state.value}
+        </Button>
       </div>
     );
   }

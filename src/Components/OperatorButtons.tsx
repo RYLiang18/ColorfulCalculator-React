@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import OperatorButton from './OperatorButton'
+import '../Styles/OperatorButtons.css'
 
 interface Props {
     cb: Function
@@ -67,8 +68,11 @@ export default class OperatorButtons extends Component<Props, State> {
         ));
 
         return (
-            <div>
-                {buttons}
+            <div className="grid-container2">
+                <div className="grid-item">{buttons[0]}</div>
+                <div className="grid-item">{buttons[1]}</div>
+                <div className="grid-item">{buttons[2]}</div>
+                <div className="grid-item">{buttons[3]}</div>
             </div>
         )
     }
