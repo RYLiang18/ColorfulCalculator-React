@@ -1,50 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+    <img alt="peter" src="https://i.imgur.com/7mVADLp.jpg" width="40%" />
+</p>
+<h1 align="center">
+  <span style="color:red">C</span>
+  <span style="color:orange">O</span>
+  <span style="color:yellow">L</span>
+  <span style="color:green">O</span>
+  <span style="color:blue">R</span>
+  <span style="color:indigo">F</span>
+  <span style="color:violet">U</span>
+  <span style="color:red">L</span>
+  <br>
+  <span style="color:red">C</span>
+  <span style="color:orange">A</span>
+  <span style="color:yellow">L</span>
+  <span style="color:green">C</span>
+  <span style="color:blue">U</span>
+  <span style="color:indigo">L</span>
+  <span style="color:violet">A</span>
+  <span style="color:red">T</span>
+  <span style="color:orange">O</span>
+  <span style="color:yellow">R</span>
 
-# ABOUT PROJECT
-Colorful Calculator is a webapp simulating a handheld calculator. It is implemented using React, Typescript, and a finite state machine. Be sure to check out: 
-src -> Notes for more information about the project
+</h1>
+<h5 align = "center">
+Don't forget to check out the <a href = "https://github.com/RYLiang18/ColorfulCalculator-React/tree/master/src/Notes">notebook</a>!!
+</h5>
+<br>
 
-View this project at: https://colorful-calculator-71831.firebaseapp.com/
+Colorful Calculator is a React implementation of a pocket calculator program by the same name that I coded up with Java Swing for AP Computer Science. At the time, I was trying to follow all my friends’ footsteps and start working on side projects, and I randomly chose React to be the first thing to learn. Not having any good ideas for side projects that would not be too complex, I decided that I would simply reimplement my old AP Computer Science final project in React and try my best to follow "best practices". It turns out it wasn’t that simple, and building out Colorful Calculator became a really profound learning experience for me.
 
-## Available Scripts
+Just a sliver of what I learned from this side project were: component-based web design, React component hierarchy, callback functions (really important!!), and React component lifecycles. Safe to say, this project served its purpose of getting me to learn React and, judging by the rest of the projects on this website (also built with ⚛), kickstarting my side project portfolio.
 
-In the project directory, you can run:
+A couple of months after finishing this project, when I was learning about compilers in a Programming Languages class, I realized that calculators and finite automata have a lot in common since both are state machines. For example, pressing ‘C’ or ‘CE’ on a calculator resets it to its starting state while pressing an operator key takes the calculator to a state where only numbers can be pressed next. The overlap between finite automata and calculators explains why some of the logic in Colorful Calculator is so confusing.
 
-### `npm start`
+Overall, Colorful Calculator was a major milestone in my college career, as it marks the first side project that I ever built using a coding language and a framework that were both self-taught, which in this case was TypeScript and React.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
