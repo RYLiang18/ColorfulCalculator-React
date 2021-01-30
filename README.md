@@ -2,26 +2,7 @@
     <img alt="peter" src="https://i.imgur.com/7mVADLp.jpg" width="40%" />
 </p>
 <h1 align="center">
-  <span style="color:red">C</span>
-  <span style="color:orange">O</span>
-  <span style="color:yellow">L</span>
-  <span style="color:green">O</span>
-  <span style="color:blue">R</span>
-  <span style="color:indigo">F</span>
-  <span style="color:violet">U</span>
-  <span style="color:red">L</span>
-  <br>
-  <span style="color:red">C</span>
-  <span style="color:orange">A</span>
-  <span style="color:yellow">L</span>
-  <span style="color:green">C</span>
-  <span style="color:blue">U</span>
-  <span style="color:indigo">L</span>
-  <span style="color:violet">A</span>
-  <span style="color:red">T</span>
-  <span style="color:orange">O</span>
-  <span style="color:yellow">R</span>
-
+  Colorful Calculator
 </h1>
 <h5 align = "center">
 Don't forget to check out the <a href = "https://github.com/RYLiang18/ColorfulCalculator-React/tree/master/src/Notes">notebook</a>!!
