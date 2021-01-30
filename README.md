@@ -2,7 +2,7 @@
     <img alt="peter" src="https://i.imgur.com/7mVADLp.jpg" width="40%" />
 </p>
 <h1 align="center">
-  Colorful Calculator
+  <a href="https://colorful-calculator-71831.web.app/">Colorful Calculator</a>
 </h1>
 <h5 align = "center">
 Don't forget to check out the <a href = "https://github.com/RYLiang18/ColorfulCalculator-React/tree/master/src/Notes">notebook</a>!!
